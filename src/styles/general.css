@@ -1,0 +1,464 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background-color: #FAFAF8;
+  padding-bottom: 300px;
+  position: relative;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: white;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #4a1f3a
+}
+
+header > img {
+  height: 100%;
+  margin-left: -15px;
+}
+
+header > h1 {
+  margin-left: -15px;
+  font-weight: 400;
+  z-index: 5;
+}
+
+main {
+  padding: 30px 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.background-image {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.12;
+  filter: blur(8px);
+  -webkit-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.background-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.add-ingredient-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 2rem 0;
+  height: 38px;
+  width: 90%;
+  position: relative;
+}
+
+.add-ingredient-form > input {
+  border-radius: 6px;
+  border: 1px solid #D1D5DB;
+  padding: 9px 13px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
+  min-width: 150px;
+  max-width: 400px;
+  font-style: italic;
+}
+
+.other-ing-label {
+  position: absolute;
+  left: 0;
+}
+
+.add-ingredient-form > input:focus {
+  border: 2px solid #734060;
+  outline: #734060;
+}
+
+.add-ingredient-form > button {
+  font-family: Inter, sans-serif;
+  border-radius: 6px;
+  border: none;
+  background-color: #734060;
+  color: #FAFAF8;
+  width: 150px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 135px;
+}
+
+.add-ingredient-form > button:hover,
+.create-another-button:hover {
+  opacity: 0.9;
+}
+
+.add-ingredient-form > button:active,
+.create-another-button:active {
+  opacity: 0.6;
+} 
+
+.add-ingredient-form > button::before {
+  content: "+";
+  margin-right: 5px;
+}
+
+.ingredients-on-hand {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+}
+
+.ingredients-on-hand h2{
+  margin-bottom: 1rem;
+  color: #65234d;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.8rem;
+  font-style: normal;
+}
+
+.ingredients-on-hand ol{
+  padding: 0 2rem;
+  color: rgb(90, 90, 90);
+  margin-top: 1rem;
+}
+
+.ingredients-on-hand li {
+  color: #475467;
+  line-height: 28px;
+  font-style: italic;
+}
+
+.ingredient-added {
+  animation-name: ingredient;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes ingredient {
+  from {
+    transform: translateX(-50px)
+  }to {
+    transform: translateX(0)
+  }
+}
+
+.ingredients-list {
+  padding: 0.7rem 0 0 1.5rem;
+}
+
+ul.ingredients-list {
+  margin-bottom: 48px;
+}
+
+ul.ingredients-list > li {
+  color: #475467;
+  line-height: 28px;
+}
+
+.get-recipe-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 10px 28px;
+  width: 100%;
+  gap: 15px;
+  animation-name: get-recipe-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes get-recipe-in {
+  0%{
+    opacity: 0;
+  }100% {
+    opacity: 1;
+  }
+}
+
+.get-recipe-container h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.get-recipe-container p {
+  color: #6B7280;
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+
+.get-recipe-container button {
+  border: none;
+  border-radius: 6px;
+  background-color: #734060;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  color: #FAFAF8;
+  padding: 9px 17px;
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.get-recipe-container button:hover {
+  opacity: 0.9;
+}
+
+.get-recipe-container button:active {
+  opacity: 0.6;
+} 
+
+.suggested-recipe-container {
+  margin-top: 30px;
+  border-radius: 10px;
+  color: #475467;
+  line-height: 28px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  max-width: 700px;
+  padding: 1rem 2.5rem;
+  background: #F0EFEB;
+  box-shadow: inset 0 0 20px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.suggested-recipe-container h2{
+  margin: 2rem 0;
+  color: #65234d;
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.suggested-recipe-container h3{
+  margin: 1.5rem 0 0.5rem 0;
+  color: #4a1f3a;
+}
+
+.suggested-recipe-container p{
+  margin: 1.5rem 0 0.5rem 0;
+  color: #4a1f3a;
+}
+
+.suggested-recipe-container ul, .suggested-recipe-container ol {
+  padding: 0 0 0 1rem;
+}
+
+.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+  margin-bottom: 8px;
+}
+
+.suggested-recipe-container ol li {
+  color: black;
+}
+
+.recommend-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Inter, sans-serif;
+}
+
+.suggested-recipe-container h2::before,
+.suggested-recipe-container h2::after {
+  content: '"';
+}
+
+.suggested-header {
+  font-style: italic;
+  color: #475467;
+}
+
+.suggested-ingr img{
+  width: 24px;
+}
+.suggested-ingr {
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  gap: 0.3rem;
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.suggested-ingr:hover {
+  opacity: 0.85;
+}
+
+.suggested-ingr:active {
+  opacity: 0.7;
+}
+
+.suggested-container {
+  gap: 1rem;
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.failed-message {
+  color: rgb(115, 17, 17);
+  margin: 200px 0;
+  background-color: rgb(219, 155, 155);
+  padding: 2.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.failed-message h2{
+  margin: 1rem;
+}
+
+.failed-message p{
+  color: rgb(88, 71, 71);
+}
+
+.save-button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.save-button:hover {
+  opacity: 0.9;
+}
+
+.save-button:active {
+  opacity: 0.7;
+}
+
+.save-button img {
+  width: 100%;
+}
+
+.save-tooltip {
+  left: 0.3rem;
+  bottom: -1.2rem;
+  font-size: 0.8rem;
+  position: absolute;
+}
+
+.save-tooltip-animate {
+  animation-name: save-tooltip;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes save-tooltip {
+  from {
+    opacity: 1;  
+  }to {
+    opacity: 0;
+  }
+}
+
+.save-tooltip-floating {
+  position: absolute;
+  right: 3.5rem;
+  top: 0.5rem;
+  display: flex;
+  font-size: 0.5rem;
+  animation-name: tooltip-arrow;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+}
+
+.save-tooltip-floating img {
+  width: 16px;
+}
+
+@keyframes tooltip-arrow {
+  from{
+    transform: translateX(0.8rem)
+  }to {
+    transform: translateX(0);
+  }
+}
+
+.suggested-recipe-header {
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background: #F0EFEB;
+  box-shadow: none;
+}
+
+.create-another-button {
+  border: none;
+  font-family: Inter, sans-serif;
+  border-radius: 10px;
+  border: none;
+  background-color: #734060;
+  color: #FAFAF8;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 135px;
+  padding: 15px 25px;
+}
+
+.saved-empty {
+  gap: 1.5rem;
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  color: #65234d;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  text-align: center;
+}
+
+.saved-empty h2{
+  font-size: 2.2rem;
+}
+
+.saved-empty p{
+  font-size: 1.1rem;
+}
+
+.saved-header {
+  text-align: center;
+}

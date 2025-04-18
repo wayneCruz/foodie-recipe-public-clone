@@ -1,0 +1,232 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.canva {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(36, 34, 34, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.cauldronBody {
+  position: absolute;
+  top: 0px;
+  width: 75px;
+  height: 70px;
+  background: rgb(138, 91, 33);
+  border-radius: 50px;
+}
+
+.cauldronLid {
+  position: relative;
+  top: -5px;
+  width: 70px;
+  height: 35px;
+  border-radius: 50%;
+  border: solid beige 1px;
+  background-color: rgb(138, 91, 33);
+  display: flex;
+  justify-content: center;
+}
+
+.loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -160px;
+  font-weight: bold;
+  color: rgb(51, 34, 12);
+  text-shadow: 0 0 20px white;
+  z-index: 100;
+}
+
+.outerLid {
+  position: absolute;
+  border: solid rgb(138, 91, 33) 10px;
+  width: 70px;
+  height: 35px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.innerLid {
+  position: absolute;
+  top: 14px;
+  width: 50px;
+  height: 15px;
+  background-color: rgb(191, 191, 108);
+  border-radius: 50%;
+}
+
+.cauldronLegs {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  width: 55px;
+  justify-content: space-between;
+  border-top-color: rgb(138, 91, 33);
+}
+
+.leg {
+  height: 15px;
+  width: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(138, 91, 33);
+}
+
+#leg1 {
+  transform: skew(-10deg);
+}
+
+#leg2 {
+  transform: skew(10deg);
+}
+
+.ladle {
+  position: absolute;
+  top: -26px;
+  width: 5px;
+  height: 40px;
+  background-color: rgb(46, 40, 40);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: solid 1px rgb(177, 177, 86);
+  animation: rotateLadle 3s linear infinite;
+}
+
+.bubbles {
+  position: absolute;
+  top: -80px;
+  width: 50px;
+  height: 100px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.bubbleContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.bubbleBound {
+  position: absolute;
+  display: flex;
+  align-items: end;
+  box-sizing: border-box;
+}
+
+#bubbleBound1 {
+  width: 10px;
+  height: 10px;
+  left: 10px;
+}
+#bubbleBound2 {
+  width: 20px;
+  height: 20px;
+  left: 20px;
+}
+#bubbleBound3 {
+  width: 15px;
+  height: 15px;
+  left: 30px;
+}
+
+.bubble {
+  border-radius: 50%;
+  border: solid 2px rgb(177, 177, 29);
+  box-sizing: border-box;
+}
+
+.opaqueBackground {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgb(227, 227, 140);
+  opacity: 0.5;
+}
+
+#bubble1 {
+  animation: animateBubble ease-in-out 6s 2s infinite;
+}
+
+#bubble2 {
+  animation: animateBubble ease-in-out 5s 1s infinite;
+}
+
+#bubble3 {
+  animation: animateBubble ease-in-out 4s infinite;
+}
+
+@keyframes animateBubble {
+  0% {
+    transform: scale(0);
+  }
+  15% {
+    width: 100%;
+    height: 100%;
+    border-color: dimgrey;
+    transform: scale(1) translate(0, -5px);
+  }
+  95% {
+    width: 100%;
+    height: 100%;
+    border-color: dimgrey;
+    transform: translate(0, -100px);
+  }
+  99% {
+    width: 100%;
+    height: 100%;
+    transform: translate(0, -100px) scale(1.2);
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    transform: translate(0, -100px) scale(0);
+  }
+}
+
+@keyframes rotateLadle {
+  0% {
+    transform: translate(20px, 2px) rotate(15deg);
+  }
+  25% {
+    transform: translate(0, -1px) rotate(0);
+  }
+  50% {
+    transform: translate(-20px, 2px) rotate(-15deg);
+  }
+  75% {
+    transform: translate(0, 5px) rotate(0);
+  }
+  100% {
+    transform: translate(20px, 2px) rotate(15deg);
+  }
+}
